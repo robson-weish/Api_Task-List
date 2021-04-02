@@ -1,0 +1,22 @@
+{
+  "name": "Api_Task-List",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/robson-weish/Api_Task-List.git",
+  "author": "Robson Gomes <60051587+robson-weish@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": " nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0",
+    "sucrase": "^3.17.1"
+  }
+}
