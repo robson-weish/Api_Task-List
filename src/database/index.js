@@ -1,21 +1,26 @@
-import Sequelize from 'sequelize';
-import databaseConfig from '../config/database';
+import Sequelize from "sequelize";
+import databaseConfig from "../config/database";
 
-import User from '../app/models/User';
+import User from "../app/models/User";
+import Task from "../app/models/Task";
 
-const models = [User];
+const models = [User, Task];
 
-class Database{
-    constructor(){
-        this.init();
-    }
+class Database {
+  constructor() {
+    this.init();
+  }
 
-    init(){
-        // Aqui fica a conexão do banco de dados com o model 
-        this.connection = new Sequelize(databaseConfig);
+  init() {
+    // Aqui fica a conexão do banco de dados com o model
+    this.connection = new Sequelize(databaseConfig);
 
-        models.map(model => model.init(this.connection));
-    }
+    models
+      .map((model) => model.init(this.connection))
+      .map(
+        (model) => model.associate && model.associate(this.connection.models)
+      );
+  }
 }
 
 export default new Database();
